@@ -35,19 +35,18 @@ const Certificate = ({ formData }) => {
         particleCount: 150,
         spread: 100,
         origin: { y: 0.4 },
-        colors: ["#10b981", "#3b82f6", "#ef4444","#f59e0b", "#8b5cf6"],
+        colors: ["#10b981", "#3b82f6", "#ef4444", "#f59e0b", "#8b5cf6"],
       });
     });
   }, []);
 
   // View Pledge Wall Button Handler
   const viewPledgeWall = () => {
-  const wall = document.getElementById("pledge-wall");
-  if (wall) {
-    wall.scrollIntoView({ behavior: "smooth" });
-  }
-};
-
+    const wall = document.getElementById("pledge-wall");
+    if (wall) {
+      wall.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const shareMessage = `I just took a Climate Action Pledge 🌍❤️ Cool Enough to Care! #ClimateAction`;
   const siteURL = window.location.href;
@@ -96,7 +95,7 @@ const Certificate = ({ formData }) => {
 
       <div className="mt-8 flex flex-col gap-4 w-full max-w-md">
         <button
-          className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg"
+          className="w-full bg-green-100 text-green-700 py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg"
           onClick={downloadCertificate}
         >
           📥 Download Certificate
@@ -117,6 +116,14 @@ const Certificate = ({ formData }) => {
           <TwitterShareButton url={siteURL} title={shareMessage}>
             <TwitterIcon size={48} round />
           </TwitterShareButton>
+        </div>
+        <div className="mt-8 flex flex-col gap-4 w-full max-w-md">
+          <button
+            className="w-full bg-gradient-to-r from-green-400 via-green-600 to-green-400 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-green-700 transition-all transform hover:scale-105 shadow-lg"
+            onClick={downloadCertificate}
+          >
+            Take Another Pledge 🌍
+          </button>
         </div>
       </div>
     </div>

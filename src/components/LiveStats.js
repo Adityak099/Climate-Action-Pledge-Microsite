@@ -84,7 +84,7 @@ const LiveStats = ({ data }) => {
             Climate change is the defining challenge of our time, but it's not
             too late to act. While governments and corporations must lead,
             individual actions create powerful ripples of change. When you make
-            a pledge, you're not just changing your habits—you're inspiring your
+            a pledge, you're not just changing your habits, you're inspiring your
             family, friends, and community to do the same.
           </p>
           <p className="text-lg text-gray-700">

@@ -63,7 +63,9 @@ const PledgeWall = ({ data }) => {
                 <tr key={i} className={i % 2 === 0 ? "bg-gray-50" : "bg-white"}>
                   <td className="px-6 py-4 font-mono text-sm">{row.id}</td>
                   <td className="px-6 py-4 font-semibold">{row.name}</td>
-                  <td className="px-6 py-4 text-gray-600">{row.date}</td>
+                  <td className="px-6 py-4 text-gray-600">
+                    {row.date ? row.date.split("T")[0] : row.date}
+                  </td>
                   <td className="px-6 py-4 text-gray-600">{row.state}</td>
                   <td className="px-6 py-4">
                     <span className="px-3 py-1 rounded-full text-xs font-semibold">
