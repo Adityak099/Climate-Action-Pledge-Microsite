@@ -120,7 +120,10 @@ const Certificate = ({ formData }) => {
         <div className="mt-8 flex flex-col gap-4 w-full max-w-md">
           <button
             className="w-full bg-gradient-to-r from-green-400 via-green-600 to-green-400 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-green-700 transition-all transform hover:scale-105 shadow-lg"
-            onClick={downloadCertificate}
+            onClick={() => {
+              sessionStorage.setItem("scrollToPledgeForm", "true");
+              window.location.reload();
+            }}
           >
             Take Another Pledge 🌍
           </button>

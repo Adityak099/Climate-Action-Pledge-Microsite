@@ -4,7 +4,6 @@ import StepperForm from "./components/PledgeForm";
 import { useEffect, useState } from "react";
 import PledgeWall from "./components/PledgeWall";
 import PrivacyNote from "./components/PrivacyNote";
-
 import AOS from "aos";
 
 function App() {
