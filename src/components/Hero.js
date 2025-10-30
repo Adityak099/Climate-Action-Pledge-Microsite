@@ -16,18 +16,11 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
         src="/herobg.mp4"
         autoPlay
-        
+        loop
         muted
         playsInline
       />
-
-      {/* Overlay for readability */}
       <div className="absolute inset-0 bg-black/45"></div>
-      {/* Animated Background Icons */}
-      {/* <div className="absolute inset-0 opacity-10">
-        <Globe className="absolute top-10 left-10 w-32 h-32 animate-pulse" />
-        <Leaf className="absolute bottom-10 right-20 w-24 h-24 animate-pulse" />
-      </div> */}
 
       <h1
         data-aos="fade-down"

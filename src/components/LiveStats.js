@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Users, Briefcase } from "lucide-react";
+import { Users, Briefcase, Award, Target } from "lucide-react";
 
 const LiveStats = ({ data }) => {
   const TARGET_PLEDGES = 1000000;
@@ -44,13 +44,15 @@ const LiveStats = ({ data }) => {
       <div className="max-w-6xl mx-auto  relative z-20 mb-12 mt-5">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="bg-white rounded-lg shadow-lg p-6 text-center ">
-            <div className="text-3xl font-bold text-green-600 mb-2">
+            <Target className="w-8 h-8 mx-auto text-green-600 mb-2" />
+            <div className="text-2xl font-bold text-green-600 mb-1">
               {TARGET_PLEDGES}
             </div>
             <div className="text-gray-600 text-sm">Target Pledges</div>
           </div>
           <div className="bg-white rounded-lg shadow-lg p-6 text-center">
-            <div className="text-3xl font-bold text-blue-600 mb-2">
+            <Award className="w-8 h-8 mx-auto text-blue-600 mb-2" />
+            <div className="text-2xl font-bold text-blue-600 mb-1">
               {counts.total}
             </div>
             <div className="text-gray-600 text-sm">Achieved Pledges</div>
@@ -74,7 +76,7 @@ const LiveStats = ({ data }) => {
 
       {/* Why Take Climate Action */}
       <div className="max-w-4xl mx-auto px-4 py-8">
-        <h2 className="text-4xl font-bold text-center text-green-700 mb-8 ">
+        <h2 className="text-4xl font-extrabold text-center mb-8 text-white ">
           Why Take Action To Save Climate?
         </h2>
         <div className="bg-white rounded-lg shadow-lg p-8">

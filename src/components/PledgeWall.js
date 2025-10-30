@@ -47,7 +47,7 @@ const PledgeWall = ({ data }) => {
       {/* Table */}
       <div className="overflow-x-auto max-w-6xl mx-auto shadow-xl rounded-lg">
         <table className="min-w-full table-auto">
-          <thead className="bg-gradient-to-r from-green-600 to-blue-600 text-white">
+          <thead className="bg-[#8fbf50] text-white">
             <tr>
               <th className="px-6 py-4 text-left">Pledge ID</th>
               <th className="px-6 py-4 text-left">Name</th>
@@ -83,7 +83,7 @@ const PledgeWall = ({ data }) => {
                 </tr>
               ))
             ) : (
-                <tr>
+              <tr>
                 <td
                   colSpan="6"
                   className="text-center py-6 text-gray-500 font-medium"

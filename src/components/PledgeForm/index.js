@@ -110,12 +110,8 @@ const StepperForm = () => {
   }
 
   return (
-    <section
-      id="pledge-form"
-      data-aos="fade-up"
-      className="py-16 px-4 bg-gradient-to-tr from-green-100 to-green-600"
-    >
-      <div className="max-w-4xl mx-auto">
+    <section id="pledge-form" data-aos="fade-up" className="py-16 px-4 bg-gradient-to-tr from-green-100 to-green-600">  
+      <div className="max-w-4xl mx-auto ">
         <div className="bg-white border-green-600 border-2 rounded-lg  shadow-xl p-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
             Make Your Climate Pledge
@@ -270,8 +266,8 @@ const StepperForm = () => {
             </div>
 
             {/* Privacy Note */}
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-              <p className="text-sm text-blue-800">
+            <div className="bg-blue-50 border border-green-200 rounded-lg p-4 mb-6">
+              <p className="text-sm text-black">
                 🔒 <strong>Privacy Note:</strong> Your mobile number and email
                 are required for validation but will never be shown publicly.
                 Your data is used only for verification and engagement purposes.
@@ -281,7 +277,7 @@ const StepperForm = () => {
             {/* Submit Button */}
             <button
               onClick={handleSubmit}
-              className="w-full bg-gradient-to-r from-green-600 to-blue-600 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-blue-700 transition-all transform hover:scale-105 shadow-lg"
+              className="w-full bg-gradient-to-r from-green-400 via-green-600 to-green-400 text-white py-4 rounded-lg text-lg font-semibold hover:from-green-700 hover:to-green-700 transition-all transform hover:scale-105 shadow-lg"
             >
               Submit My Pledge 🌟
             </button>
