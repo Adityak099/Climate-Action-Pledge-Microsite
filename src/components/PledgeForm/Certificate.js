@@ -1,5 +1,5 @@
 import html2canvas from "html2canvas";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Heart, Award } from "lucide-react";
 import {
   WhatsappShareButton,
@@ -28,22 +28,26 @@ const Certificate = ({ formData }) => {
     });
   };
 
+  // Confetti effect
   useEffect(() => {
     import("canvas-confetti").then((confetti) => {
       confetti.default({
         particleCount: 150,
         spread: 100,
-        origin: { y: 0.6 },
-        colors: ["#10b981", "#3b82f6", "#ef4444"],
+        origin: { y: 0.4 },
+        colors: ["#10b981", "#3b82f6", "#ef4444","#f59e0b", "#8b5cf6"],
       });
     });
   }, []);
 
+  // View Pledge Wall Button Handler
   const viewPledgeWall = () => {
-    // Store flag in sessionStorage to scroll after reload
-    sessionStorage.setItem("scrollToPledgeWall", "true");
-    window.location.reload();
-  };
+  const wall = document.getElementById("pledge-wall");
+  if (wall) {
+    wall.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 
   const shareMessage = `I just took a Climate Action Pledge 🌍❤️ Cool Enough to Care! #ClimateAction`;
   const siteURL = window.location.href;

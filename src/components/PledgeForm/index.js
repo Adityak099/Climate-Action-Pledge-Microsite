@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Sun, Recycle, Droplet } from "lucide-react";
 import Certificate from "./Certificate";
 
-const StepperForm = () => {
+const StepperForm = ({ onPledgeSubmitted }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -98,6 +98,11 @@ const StepperForm = () => {
         }
       );
 
+      // Notify parent component about the new pledge
+      if (onPledgeSubmitted) {
+        onPledgeSubmitted(payload);
+      }
+
       setShowCertificate(true);
     } catch (error) {
       console.error("Error submitting:", error);
@@ -110,7 +115,11 @@ const StepperForm = () => {
   }
 
   return (
-    <section id="pledge-form" data-aos="fade-up" className="py-16 px-4 bg-gradient-to-tr from-green-100 to-green-600">  
+    <section
+      id="pledge-form"
+      data-aos="fade-up"
+      className="py-16 px-4 bg-gradient-to-tr from-green-100 to-green-600"
+    >
       <div className="max-w-4xl mx-auto ">
         <div className="bg-white border-green-600 border-2 rounded-lg  shadow-xl p-8">
           <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">

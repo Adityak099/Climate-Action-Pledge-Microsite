@@ -10,7 +10,7 @@ import AOS from "aos";
 function App() {
   const [pledgeData, setPledgeData] = useState([]);
 
-  useEffect(() => {
+  const fetchPledgeData = () => {
     // Fetch from Google Script
     fetch(
       "https://script.google.com/macros/s/AKfycbwbZt_OOjqzvaAmmzROOOuii8O12DL66bTAOnQhAKM89ar-J7MFvgSoig3iuzR3aFc/exec"
@@ -24,35 +24,41 @@ function App() {
         console.error("Failed to fetch pledges:", err);
         setPledgeData([]);
       });
+  };
+
+  useEffect(() => {
+    fetchPledgeData();
   }, []);
 
   useEffect(() => {
     AOS.init({ duration: 800 });
   }, []);
 
-  // Check if we need to scroll to pledge wall after reload
-  useEffect(() => {
-    const shouldScrollToPledgeWall =
-      sessionStorage.getItem("scrollToPledgeWall");
-    if (shouldScrollToPledgeWall === "true") {
-      sessionStorage.removeItem("scrollToPledgeWall");
-      setTimeout(() => {
-        const pledgeWallSection = document.getElementById("pledge-wall");
-        if (pledgeWallSection) {
-          pledgeWallSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      }, 1000);
-    }
-  }, [pledgeData]);
+  // Function to add a new pledge optimistically and refresh data
+  const handleNewPledge = (newPledgeData) => {
+    // Add the new pledge optimistically to the UI
+    const optimisticPledge = {
+      id: `PLEDGE-${Date.now()}`, // Temporary ID
+      name: newPledgeData.name,
+      date: new Date().toISOString().split("T")[0],
+      state: newPledgeData.state || "Not specified",
+      profile: newPledgeData.profile,
+      stars: newPledgeData.stars,
+    };
+
+    setPledgeData((prevData) => [...prevData, optimisticPledge]);
+
+    // Fetch the latest data from the server after a short delay
+    setTimeout(() => {
+      fetchPledgeData();
+    }, 2000);
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50 to-blue-50">
       <Hero />
       <LiveStats data={pledgeData} />
-      <StepperForm />
+      <StepperForm onPledgeSubmitted={handleNewPledge} />
       <PrivacyNote />
       <PledgeWall data={pledgeData} />
 
